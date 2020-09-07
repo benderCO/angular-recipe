@@ -2,26 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
-## Development server
+## Goals
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For this javascript project we've provided a recipe API with two endpoints. With this API you'll need to complete the following objectives.
 
-## Code scaffolding
+Pull the data from the API: https://bitbucket.org/crescendocollective/frontend-api-skills-test/src/master/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Create a list view which includes all the recipes
+* Create a recipe detail view to display each recipe
+* Ingredients with a matching ingredientId listed in the specials response should also show the special title, type and text under the ingredient name
+* Bonus: Create a view to add and update recipes or specials. Image upload not required. Both endpoints support GET, POST and PATCH.
+* This project includes a API server (json-server) for you to use. To install and run, use the commands below:
 
-## Build
+npm i
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+npm run start:api
 
-## Running unit tests
+Once running, you can use the API endpoints listed in the following section from http://localhost:3001. More information about querying the server can be found on the 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+json-server github page.
