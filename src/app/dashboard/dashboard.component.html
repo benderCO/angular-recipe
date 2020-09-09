@@ -1,1 +1,7 @@
-<p>dashboard works!</p>
+<div *ngIf='recipesService.recipies | async as recipes'>
+    <ul *ngFor='let recipe of recipes'>
+        <li>
+            <div>test</div>
+        </li>
+    </ul>
+</div>
