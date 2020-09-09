@@ -1,7 +1,18 @@
-<div *ngIf='recipesService.recipies | async as recipes'>
-    <ul *ngFor='let recipe of recipes'>
-        <li>
-            <div>test</div>
-        </li>
-    </ul>
+<div class='recipe-dashboard'>
+    <div *ngIf='recipesService.recipies | async as recipes'>
+        <div class='row recipe-dashboard-header'>
+            <h5 class='col-sm-2'>Title</h5>
+            <h5 class='col-sm-5'>Description</h5>
+            <h5 class='col-sm-1'>Servings</h5>
+            <h5 class='col-sm-2'>Preperation Time</h5>
+            <h5 class='col-sm-2'>Cook Time</h5>
+        </div>
+        <div class='row recipe-dashboard-data' *ngFor='let recipe of recipes'>
+            <div class='col-sm-2'>{{recipe.title}}</div>
+            <div class='col-sm-5'>{{recipe.description}}</div>
+            <div class='col-sm-1'>{{recipe.servings}}</div>
+            <div class='col-sm-2'>{{recipe.prepTime}}</div>
+            <div class='col-sm-2'>{{recipe.cookTime}}</div>
+        </div>
+    </div>
 </div>
