@@ -11,7 +11,8 @@ import { Recipes } from '../../interfaces/index';
 })
 export class RecipesService {
 
-  public recipies: ReplaySubject<Recipes[]> = new ReplaySubject<Recipes[]>(1);
+  public recipe: ReplaySubject<Recipes> = new ReplaySubject<Recipes>(1);
+  public recipes: ReplaySubject<Recipes[]> = new ReplaySubject<Recipes[]>(1);
 
   constructor(
     private http: HttpClient
@@ -21,7 +22,13 @@ export class RecipesService {
 
   public loadRecipes() : Observable<Recipes[]> {
     return this.http.get<Recipes[]>(environment.baseUrl + 'recipes').pipe(
-      tap((resp) => this.recipies.next(resp))
+      tap((resp) => this.recipes.next(resp))
+    );
+  }
+
+  public loadRecipe(recipeUuid: String) : Observable<Recipes> {
+    return this.http.get<Recipes>(environment.baseUrl + 'recipes?uuid=' + recipeUuid).pipe(
+      tap((resp) => this.recipe.next(resp))
     );
   }
 }
