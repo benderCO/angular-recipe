@@ -1,11 +1,47 @@
 <div class='recipe-details'>
+    <h3>Recipe Details</h3>
     <div *ngIf='recipe'>
-        <div>
+        <div class='row row-header'>
+            <h5 class='col-sm-2'>Title</h5>
+            <h5 class='col-sm-5'>Description</h5>
+            <h5 class='col-sm-1'>Servings</h5>
+            <h5 class='col-sm-2'>Prep Time</h5>
+            <h5 class='col-sm-2'>Cook Time</h5>
+        </div>
+        <div class='row'>
             <div class='col-sm-2'>{{recipe.title}}</div>
             <div class='col-sm-5'>{{recipe.description}}</div>
             <div class='col-sm-1'>{{recipe.servings}}</div>
             <div class='col-sm-2'>{{recipe.prepTime}}</div>
             <div class='col-sm-2'>{{recipe.cookTime}}</div>
+        </div>
+        <div class='row row-header'>
+            <h5 class='col-sm-4'>Full</h5>
+            <h5 class='col-sm-4'>Medium</h5>
+            <h5 class='col-sm-4'>Small</h5>
+        </div>
+        <div class='row'>
+            <img class='col-sm-4' [src]="recipe.images.full">
+            <img class='col-sm-4' [src]="recipe.images.medium">
+            <img class='col-sm-4' [src]="recipe.images.small">
+        </div>
+        <div class='row row-header'>
+            <h5 class='col-sm-4'>Name</h5>
+            <h5 class='col-sm-4'>Amount</h5>
+            <h5 class='col-sm-4'>Measurement</h5>
+        </div>
+        <div class='row' *ngFor="let ingredient of recipe.ingredients">
+            <div class='col-sm-4'>{{ingredient.name}}</div>
+            <div class='col-sm-4'>{{ingredient.amount}}</div>
+            <div class='col-sm-4'>{{ingredient.measurement}}</div>
+        </div>
+        <div class='row row-header'>
+            <h5 class='col-sm-6'>Instructions</h5>
+            <h5 class='col-sm-6'>Optional</h5>
+        </div>
+        <div class='row' *ngFor="let direction of recipe.directions">
+            <div class='col-sm-6'>{{direction.instructions}}</div>
+            <div class='col-sm-6'>{{direction.optional}}</div>
         </div>
     </div>
 </div>
