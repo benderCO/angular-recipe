@@ -30,12 +30,15 @@
             <h5 class='col-sm-4'>Amount</h5>
             <h5 class='col-sm-4'>Measurement</h5>
         </div>
-        <div class='row' *ngFor="let ingredient of recipe.ingredients">
+        <div class='row sub-row-header' *ngFor="let ingredient of recipe.ingredients">
             <div class='col-sm-4'>{{ingredient.name}}</div>
             <div class='col-sm-4'>{{ingredient.amount}}</div>
             <div class='col-sm-4'>{{ingredient.measurement}}</div>
-            <div *ngIf='specialsService.loadSpecials(ingredient.uuid) as specails'>
-                <div class='row' *ngFor="let special of specails">
+            <div class='row sub-row col-sm-12'*ngIf='ingredient.special.length > 0'>
+                <h5 class='col-sm-4'>Title</h5>
+                <h5 class='col-sm-4'>Type</h5>
+                <h5 class='col-sm-4'>Text</h5>
+                <div class='row col-sm-12' *ngFor="let special of ingredient.special">
                     <div class='col-sm-4'>{{special.title}}</div>
                     <div class='col-sm-4'>{{special.type}}</div>
                     <div class='col-sm-4'>{{special.text}}</div>

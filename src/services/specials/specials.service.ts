@@ -17,7 +17,8 @@ export class SpecialsService {
   ) { }
 
   public loadSpecials(ingredientId: String) : Observable<Special[]> {
-    return this.http.get<Special[]>(environment.baseUrl + 'recipes?ingredientId=' + ingredientId).pipe(
+    return this.http.get<Special[]>(environment.baseUrl + 'specials?ingredientId=' + ingredientId).pipe(
+      tap(() => new ReplaySubject(1)),
       tap((resp) => 
       {
         console.log('WTF ', resp);

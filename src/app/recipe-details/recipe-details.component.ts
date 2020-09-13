@@ -25,6 +25,9 @@ export class RecipeDetailsComponent implements OnInit {
       this.recipesService.loadRecipe(params.get('uuid')).subscribe(
         (res) => {
           this.recipe = res[0]
+          this.recipe.ingredients.forEach((ing) => {
+            this.specialsService.loadSpecials(ing.uuid).subscribe((resp) => ing.special = resp);
+          })
         }
       );
     });
