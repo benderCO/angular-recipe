@@ -34,6 +34,13 @@
             <div class='col-sm-4'>{{ingredient.name}}</div>
             <div class='col-sm-4'>{{ingredient.amount}}</div>
             <div class='col-sm-4'>{{ingredient.measurement}}</div>
+            <div *ngIf='specialsService.loadSpecials(ingredient.uuid) as specails'>
+                <div class='row' *ngFor="let special of specails">
+                    <div class='col-sm-4'>{{special.title}}</div>
+                    <div class='col-sm-4'>{{special.type}}</div>
+                    <div class='col-sm-4'>{{special.text}}</div>
+                </div>
+            </div>
         </div>
         <div class='row row-header'>
             <h5 class='col-sm-6'>Instructions</h5>

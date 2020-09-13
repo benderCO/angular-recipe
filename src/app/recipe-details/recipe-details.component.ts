@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { RecipesService } from '../../services/recipes/recipes.service';
 import { Recipes } from '../../interfaces/recipes/recipes'
+import { SpecialsService } from '../../services/specials/specials.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -15,6 +16,7 @@ export class RecipeDetailsComponent implements OnInit {
 
   constructor(
     public recipesService: RecipesService,
+    public specialsService: SpecialsService,
     private route: ActivatedRoute
   ) { }
 
